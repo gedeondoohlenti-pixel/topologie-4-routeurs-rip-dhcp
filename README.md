@@ -40,7 +40,7 @@ graph LR
   R3 ---|192.168.70.0/24| R4
 ```
 
-> Ajoute ici une capture d'écran de ta topologie Packet Tracer : `![Topologie](images/topologie.png)`
+![Topologie Packet Tracer](images/topologie.png)
 
 ## Plan d'adressage
 
@@ -99,7 +99,9 @@ Les commandes à lancer et les captures à ajouter :
 | Connectivité | `ping` d'un PC du LAN 1 vers un PC du LAN 4 | Réponses reçues |
 | Chemin | `tracert` du même PC | Passage par les routeurs intermédiaires |
 
-> Ajoute tes captures dans `images/` et référence-les ici.
+![Show ip route sur R1](images/show_ip_route_R1.png)
+![Show ip DHCP binding sur R1](images/show_ip_dhcp_binding.png)
+![Test de connectivité entre un PC du LAN 1 et un PC du LAN 4](images/ping_LAN1_LAN4.png)
 
 ## Ce que j'ai appris
 
