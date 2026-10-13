@@ -1,0 +1,75 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R3
+!
+ip dhcp excluded-address 192.168.80.1 192.168.80.9
+ip dhcp excluded-address 192.168.80.100 192.168.80.254
+!
+ip dhcp pool reseau3
+ network 192.168.80.0 255.255.255.0
+ default-router 192.168.80.1
+!
+no ip cef
+no ipv6 cef
+!
+spanning-tree mode pvst
+!
+interface GigabitEthernet0/0
+ ip address 192.168.80.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/2/0
+ ip address 192.168.70.1 255.255.255.0
+!
+interface Serial0/2/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/3/0
+ ip address 192.168.40.2 255.255.255.0
+!
+interface Serial0/3/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router rip
+ version 2
+ network 192.168.40.0
+ network 192.168.70.0
+ network 192.168.80.0
+!
+ip classless
+!
+ip flow-export version 9
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+end
